@@ -1,0 +1,124 @@
+Dynamic Programming - 2
+
+Partition Matrix Chain Multiplication
+
+7 + 18 + 15 = 40		8 + 2 + 9 = 19
+28 + 45 + 30 = 113	32 + 5 + 18 = 55
+
+a = {5, 7, 4, 9}
+
+M0 * ( M1 * M2 ) = (5 * 7 * 9) + (7 * 4 * 9) = 567
+(M0 * M1) * M2   = (5 * 7 * 4) + (5 * 4 * 9) = 320
+
+7 steps for DP
+	1. Define Left side of recurrance relation
+		- should represent size of the problem
+		- non-changing arguments are assumed to be global (ex. array, string, matrix, map, etc)
+
+		ex Problem 1: 
+			problem to find sum of elements of an array
+			
+			sum(N) = A[N - 1] + sum(N - 1)
+			sum(0) = 0
+		ex Problem 2:
+			problem to find sum of elemets of array range A[s:e]
+			
+			i. 	sum(s, e) = A[s] + A[e] + sum(s + 1, e - 1)
+				sum(s, s) = 0
+				sum(s, s + 1) = A[s] + A[s + 1]
+
+			ii.	sum(b, e) = A[b] + sum(b + 1, e)
+				or
+				sum(b, e) = A[e] + sum(b, e - 1]
+				sum(s, s) = A[s]
+			
+			iii. 	sum(s, e) = A[(s + e) / 2] + sum(s, (s + e) / 2 - 1) + sum((s + e) / 2 + 1, e)
+				sum(s, s) = A[s]
+				sum(s, e) = 0 if s > e
+
+		ex Problem 3:
+			problem to find sum of array from index si
+			
+			i. 	sum(si) = A[si] + sum(si + 1)
+				
+				sum(si) = 0 if si >= N 
+					or
+				sum(N - 1) = A[N - 1]
+
+
+		ex Problem 4:
+			problem to find sum of array until index ei
+			
+			i. 	sum(ei) = A[ei] + sum(ei - 1)
+				
+				sum(ei) = 0 if ei < 0	or
+				sum(0) = A[0]
+
+
+
+	2. Define Right side of Recurrance relation
+		- Explore every possibility we can take 
+		- Define a recursive term for each step
+
+		
+
+
+
+
+---------------------------------------------------------------------------------------------
+Matrix Chain Multiplication :
+
+
+noOfMinMultiplications(A, N) 
+	global A
+	return minMul(1, N - 1)
+
+
+minMul(s, e):
+	* s - start matrix number = 1
+	* e - end   matrix number = N - 1
+
+minMul(s, e) = min(
+			minMul(s, s) 	+ minMul(s + 1, e) + (A[s - 1] * A[s] * A[e])
+			minMul(s, s + 1) 	+ minMul(s + 2, e) + (A[s - 1] * A[s + 1] * A[e])
+			
+minMul(s, s) = 0
+
+
+example : [1, 2, 3, 4]
+	
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,32 @@
+hasSubsetSum:
+	1. bit manipulation for all combinations : n * 2 ^ n
+	2. DP ( memorization or tabulation )
+		f(n, s) = f(n + 1, s - a[n]) or f(n + 1, s)
+
+		T. C. : O(n * s)
+		S. C. : O(n * s)
+	3. bitset approach
+
+
+
+
+3. bitset approach
+	// create a bit set of size of sum of we want
+	bitset<30> bs;
+	// set the 0th value as 1
+	bs[0] = 1
+	
+	// for each element in array
+	for(int i : a) {
+		// shift the bits of bs to left by i and or with bs
+		bs = bs | (bs << i)
+	}
+	
+	if(bs[k])	cout << "YES"
+	else		cout << "NO"
+
+
+
+
+	// bs[i] the bit indicates the their exist a subset with sum i
+

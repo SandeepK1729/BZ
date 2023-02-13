@@ -1,0 +1,40 @@
+Problem : 2 + 5 * 9 + 3 * 6
+
+
+symbols : ['0' to '9' , '+' and '*']
+
+
+
+
+Global expression : exp
+
+evaluate(s, e) = 
+- operate( evaluate(s, s), 	 evaluate(s + 2, e), 	exp[s + 1])
+- operate( evaluate(s, s + 2), evaluate(s + 4, e), 	exp[s + 3])
+...
+- operate( evaluate(s, e - 2), evaluate(e, e), 		exp[e - 1])
+------
+max { operate( evaluate(s, m), 	 evaluate(m + 2, e), 	exp[m + 1]),  s <= m <= e - 2 }
+
+base case:
+evaluate(s, s) = int(exp(s))
+	
+
+----------------------------------------------------
+problem : Egg Break 
+100 	number of floors
+2 	number of eggs
+
+the egg breaks only when it falls from a floor or above it knows as threshold floor
+
+
+approach - 1:	if take one step at a time : 100 iterations
+fall(f, x) = {
+			fall(
+
+approach - 2:	if take 2 step at a time   : 51 iterations
+approach - 3:	if take x step at a time   : (100 / x) + (x - 1) iterations
+approach - 4:	if take x step at first time   : (100 / x) + (x - 1) iterations
+
+
+
