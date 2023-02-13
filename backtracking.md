@@ -6,7 +6,8 @@ Steps
 - remove current
 
 
-```void backtrack(int i, int j, vector<int> path) {
+```
+void backtrack(int i, int j, vector<int> path) {
 	if(!isValid(i, j))	return;
 
 	path.push_back(S[i][j]);
@@ -16,4 +17,5 @@ Steps
 	backtrack(i, j + 1, path);
 
 	path.pop_back();
-}```
+}
+```
